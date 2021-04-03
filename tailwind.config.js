@@ -14,6 +14,7 @@ module.exports = {
       blue: colors.blue,
 
       danger: "#FA4616",
+      main: "#FED124",
     },
     fontSize: {
       xxs: ".625rem",
@@ -30,9 +31,18 @@ module.exports = {
       "6xl": "4rem",
       "7xl": "5rem",
     },
+    borderWidth: {
+      DEFAULT: "1px",
+      0: "0",
+      2: "2px",
+      3: "3px",
+      4: "4px",
+      6: "6px",
+      8: "8px",
+    },
   },
-  variants:{
-    translate: ['hover', 'group-hover'],
-    block: ['hover', 'group-hover']
-  }
+  variants: {
+    translate: ["hover", "group-hover"],
+    block: ["hover", "group-hover"],
+  },
 };
