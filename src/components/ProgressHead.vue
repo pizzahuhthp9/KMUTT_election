@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="h-1 w-screen mt-8 px-5 mb-3 border-black border-b-3 flex justify-around items-center">
+      <div class="h-1 w-screen mt-8 px-5 mb-8 border-black border-b-3 flex justify-around items-center">
           
           
           <div class="h-5 w-5 bg-black rounded-full border-black border-3" v-for="index in parseInt(passed)" :key="index"></div>
