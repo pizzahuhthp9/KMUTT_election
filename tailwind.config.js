@@ -15,6 +15,7 @@ module.exports = {
 
       danger: "#FA4616",
       main: "#FED124",
+      select: "#68DB40"
     },
     fontSize: {
       xxs: ".625rem",
