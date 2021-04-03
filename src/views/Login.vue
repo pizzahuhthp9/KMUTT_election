@@ -1,7 +1,7 @@
 <template>
   <div id="content">
     <div class="mx-10">
-      <div id="header" class="mt-5 flex justify-between items-center">
+      <div id="header" class="mt-5 flex justify-between items-center mb-8">
         <div id="langBtn" class="w-max text-xxs group flex flex-col h-4">
           <button class="py-1">Change Language &#9660;</button>
           <button
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div id="body" class="mt-8">
+      <div id="body">
         <div>
           <p class="text-4xl font-bold object-contain">ระบบการเลือกตั้ง</p>
           <p class="text-xxs">
@@ -88,7 +88,7 @@ export default {
 
     },
     forgotPassword(){
-      
+
     }
   },
 };
