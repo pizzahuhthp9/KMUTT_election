@@ -1,8 +1,8 @@
 <template>
   <div id="content">
     <div class="mx-10">
-      <div id="header" class="mt-5 flex justify-between">
-        <div id="langBtn" class="w-max text-xxs group flex flex-col">
+      <div id="header" class="mt-5 flex justify-between items-center">
+        <div id="langBtn" class="w-max text-xxs group flex flex-col h-4">
           <button class="py-1">Change Language &#9660;</button>
           <button
             class="transform transition bg-white ease-in-out duration-500 rounded-md py-1 -translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100"
@@ -15,10 +15,14 @@
             English
           </button>
         </div>
-        <div class="w-10 h-10 bg-white">logo</div>
+        <div class="w-20 flex space-x-1 items-center">
+          <img src="@/assets/KMUTT_Semi_Logo.png" alt="" class="h-8"/>
+          <div class="h-8 border-black border-r"></div>
+          <img src="@/assets/KMUTT_election.png" alt="" class="h-8">
+        </div>
       </div>
 
-      <div id="body">
+      <div id="body" class="mt-8">
         <div>
           <p class="text-4xl font-bold object-contain">ระบบการเลือกตั้ง</p>
           <p class="text-xxs">
@@ -79,7 +83,14 @@ export default {
       username: null,
     };
   },
-  methods: {},
+  methods: {
+    login(){
+
+    },
+    forgotPassword(){
+      
+    }
+  },
 };
 </script>
 
