@@ -22,16 +22,16 @@
         </div>
       </div>
 
-      <div id="body">
+      <div id="body" class="flex flex-col justify-center items-center">
         <div>
-          <p class="text-4xl font-bold object-contain">ระบบการเลือกตั้ง</p>
-          <p class="text-xxs">
+          <p class="text-3xl font-bold">ระบบการเลือกตั้ง</p>
+          <p class="xs:text-xxs xxs:text-xxxs">
             คณะกรรมการองค์การบริหารองค์การนักศึกษาและสภานักศึกษา
             <br />มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
           </p>
         </div>
         <div
-          class="w-max bg-white border-black border-2 rounded-3xl mt-8 px-3 pt-3 pb-4 mx-auto"
+          class="w-max bg-white border-black border-2 rounded-3xl mt-8 px-3 pt-3 pb-4"
         >
           <p class="text-sm">เข้าสู่ระบบด้วย KMUTT internet account</p>
           <div class="flex flex-col">

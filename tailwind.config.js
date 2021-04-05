@@ -18,6 +18,7 @@ module.exports = {
       select: "#68DB40"
     },
     fontSize: {
+      xxxs: ".5rem",
       xxs: ".625rem",
       xs: ".75rem",
       sm: ".875rem",
@@ -40,6 +41,10 @@ module.exports = {
       4: "4px",
       6: "6px",
       8: "8px",
+    },
+    screens: {
+      'xxs': '320px',
+      'xs': '335px',
     },
   },
   variants: {

@@ -1,8 +1,7 @@
 <template>
   <div class="bg-white rounded-lg pt-3 pb-4 px-5">
     <p class="mb-5 font-extrabold">เบอร์ {{ no }} พรรค{{ name }}</p>
-    <div class="flex justify-around">
-      
+    <div class="flex justify-around text-sm">
       <button class="bg-white border border-black rounded-full p-2 w-2/5 transition duration-300 hover:bg-select" v-if="selectState <= 0" @click="accept">ยอมรับ</button>
       <button class="bg-select border border-black rounded-full p-2 w-2/5" v-else-if="selectState == 1" @click="accept">ยอมรับ</button>
       <button class="bg-white border border-black rounded-full p-2 w-2/5 transition duration-300 hover:bg-danger" v-if="selectState >= 0" @click="decline">ไม่ยอมรับ</button>

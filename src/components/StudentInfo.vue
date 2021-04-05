@@ -12,7 +12,7 @@
           {{ student.fullName }} <br />
           {{ student.studentNumber }}
         </p>
-        <p class="text-md">
+        <p class="text-sm">
           {{ student.faculty }}
           <br />
           {{ student.department }} <br />
