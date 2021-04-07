@@ -16,7 +16,7 @@
       </p>
 
 
-      <party-card :no="party.no" :name="party.name" class="mb-4" v-for="(party, index) in parties" :key="index"></party-card>
+      <party-card :party="party" class="mb-4" v-for="(party, index) in getParties" :key="index"></party-card>
 
 
       <p class="text-lg my-2">หรือ</p>
@@ -31,19 +31,10 @@ import ProgressHead from "@/components/ProgressHead.vue";
 import PartyCard from "@/components/PartyCard.vue";
 export default {
   name: "PartySelect",
-  data() {
-      return {
-          parties:[
-              {
-                  no: 1,
-                  name: "ที่ใจไว้ที่เทอว์"
-              },
-              {
-                  no: 2,
-                  name: "ผ่อน"
-              }
-          ]
-      }
+  computed:{
+    getParties(){
+      return this.$store.getters.getParties;
+    }
   },
   components: {
     ProgressHead,

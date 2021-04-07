@@ -46,6 +46,9 @@ module.exports = {
       'xxs': '320px',
       'xs': '335px',
     },
+    minHeight:{
+      '72': '18rem',
+    },
   },
   variants: {
     translate: ["hover", "group-hover"],

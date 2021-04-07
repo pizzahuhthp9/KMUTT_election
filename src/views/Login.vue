@@ -53,6 +53,7 @@
         <div class="flex flex-col">
           <button
             class="bg-white px-8 py-2 rounded-xl mt-6 font-bold w-max mx-auto text-xl"
+            @click="login"
           >
             เข้าสู่ระบบ
           </button>
@@ -85,7 +86,7 @@ export default {
   },
   methods: {
     login(){
-
+      this.$router.push("Confirm");
     },
     forgotPassword(){
 

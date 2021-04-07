@@ -4,7 +4,7 @@
       <progress-head amount="5" passed="1"></progress-head>
     </div>
     <div id="body">
-      <student-info :student="student"></student-info>
+      <user-card :student="getUser"></user-card>
     </div>
     <div id="confirmation" class="flex flex-col items-start mx-10">
         <p class="">เบอร์โทรศัพท์ของคุณ</p>
@@ -22,23 +22,21 @@
 
 <script>
 import ProgressHead from "@/components/ProgressHead.vue";
-import StudentInfo from "@/components/StudentInfo.vue";
+import UserCard from "@/components/UserCard.vue";
 export default {
   name: "ConfirmSentMessage",
   data() {
     return {
-      student: {
-        fullName: "นายประเสริฐ มุ่งมานะ",
-        studentNumber: "60070501000",
-        faculty: "คณะวิศวกรรมศาสตร์",
-        department: "ภาควิชาวิศวกรรมคอมพิวเตอร์",
-        year: "ชั้นปีที่ 3",
-      },
     };
+  },
+  computed:{
+    getUser(){
+      return this.$store.getters.getUser;
+    }
   },
   components: {
     ProgressHead,
-    StudentInfo,
+    UserCard,
   },
 };
 </script>

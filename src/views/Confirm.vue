@@ -6,7 +6,7 @@
       <h1 class="text-2xl font-bold">ยืนยันข้อมูลนักศึกษา</h1>
     </div>
 
-    <student-info :student="student"></student-info>
+    <user-card :student="getUser"></user-card>
 
     <div id="comfirmation">
       <div v-if="!isPrivilegesUsed">
@@ -27,24 +27,22 @@
 
 <script>
 import ProgressHead from "@/components/ProgressHead.vue";
-import StudentInfo from "@/components/StudentInfo.vue";
+import UserCard from "@/components/UserCard.vue";
 export default {
   name: "Confirm",
   data() {
     return {
-      student: {
-        fullName: "นายประเสริฐ มุ่งมานะ",
-        studentNumber: "60070501000",
-        faculty: "คณะวิศวกรรมศาสตร์",
-        department: "ภาควิชาวิศวกรรมคอมพิวเตอร์",
-        year: "ชั้นปีที่ 3",
-      },
       isPrivilegesUsed: false,
     };
   },
+  computed:{
+    getUser(){
+      return this.$store.getters.getUser;
+    }
+  },
   components: {
     ProgressHead,
-    StudentInfo,
+    UserCard,
   },
 };
 </script>

@@ -9,14 +9,14 @@
           class="w-24 border-black border-2 mb-5"
         />
         <p class="text-xl mb-5">
-          {{ student.fullName }} <br />
-          {{ student.studentNumber }}
+          {{ student.name }} <br />
+          {{ student.no }}
         </p>
         <p class="text-sm">
           {{ student.faculty }}
           <br />
           {{ student.department }} <br />
-          {{ student.year }}
+          ชั้นปีที่ {{ student.year }}
         </p>
       </div>
     </div>
@@ -24,9 +24,8 @@
 
 <script>
 export default {
-    name: "StudentInfo",
+    name: "UserCard",
     props:{
-
         student: Object
     }
 }
