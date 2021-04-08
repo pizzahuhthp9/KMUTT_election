@@ -6,6 +6,7 @@ import PartySelect from "../views/PartySelect.vue";
 import ConfirmSelect from "../views/ConfirmSelect.vue";
 import SelectSecond from "../views/SelectSecond.vue";
 import ConfirmSelectSecond from "../views/ConfirmSelectSecond.vue";
+import Finish from "../views/Finish.vue";
 
 const routes = [
   {
@@ -19,7 +20,7 @@ const routes = [
     component: Confirm,
   },
   {
-    path: "/confirm/sentmessage",
+    path: "/sentmessage",
     name: "ConfirmSentMessage",
     component: ConfirmSentMessage
   },
@@ -42,6 +43,11 @@ const routes = [
     path: "/confirmselectsecond",
     name: "ConfirmSelectSecond",
     component: ConfirmSelectSecond
+  },
+  {
+    path: "/finish",
+    name: "Finish",
+    component: Finish
   }
 ];
 

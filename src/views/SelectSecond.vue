@@ -12,7 +12,7 @@
         :student="student"
         class="mb-3"
       ></student-card>
-      <button class="bg-gray-200 text-lg font-extrabold px-6 py-1 rounded-xl mt-3">ยืนยัน</button>
+      <button class="bg-gray-200 text-lg font-extrabold px-6 py-1 rounded-xl mt-3" @click="submit">ยืนยัน</button>
     </div>
   </div>
 </template>
@@ -26,6 +26,11 @@ export default {
     return {
       faculty: "คณะวิศวกรรมศาสตร์",
     };
+  },
+  methods: {
+    submit(){
+      this.$router.push("ConfirmSelectSecond");
+    }
   },
   computed:{
     getStudents(){

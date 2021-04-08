@@ -35,8 +35,8 @@
         คุณจะยืนยันการเลือกหรือไม่
       </p>
       <div class="flex justify-center space-x-5 mt-3">
-        <button class="bg-gray-200 py-1 w-24 rounded-lg">แก้ไข</button>
-        <button class="bg-white py-1 w-24 rounded-lg font-bold">
+        <button class="bg-gray-200 py-1 w-24 rounded-lg" @click="edit">แก้ไข</button>
+        <button class="bg-white py-1 w-24 rounded-lg font-bold" @click="submit">
           เสร็จสิ้น
         </button>
       </div>
@@ -54,6 +54,14 @@ export default {
       partyName: "พรรคที่ไว้ใจเทอว์",
       selected: true ,
     };
+  },
+  methods: {
+    edit(){
+      this.$router.push("PartySelect");
+    },
+    submit(){
+      this.$router.push("SelectSecond");
+    }
   },
   mounted() {
     

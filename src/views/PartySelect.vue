@@ -21,7 +21,7 @@
 
       <p class="text-lg my-2">หรือ</p>
       <button class="w-full bg-red-200 text-lg rounded-md py-2 mb-10">ไม่ประสงค์ลงคะแนน</button>
-      <button class="bg-gray-200 py-2 px-8 rounded-lg font-bold text-lg">ยืนยัน</button>
+      <button class="bg-gray-200 py-2 px-8 rounded-lg font-bold text-lg mb-3" @click="submit">ยืนยัน</button>
     </div>
   </div>
 </template>
@@ -34,6 +34,11 @@ export default {
   computed:{
     getParties(){
       return this.$store.getters.getParties;
+    }
+  },
+  methods: {
+    submit(){
+      this.$router.push("PartyConfirm");
     }
   },
   components: {

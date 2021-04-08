@@ -20,8 +20,8 @@
         จะไม่สามารถแก้ไขได้อีก <br />คุณจะยืนยันการเลือกหรือไม่
       </h1>
       <div class="flex justify-between mt-3">
-        <button class="w-28 bg-gray-400 rounded-lg py-1.5 px-3">แก้ไข</button>
-        <button class="w-28 bg-white rounded-lg py-1.5 px-3 font-extrabold">เสร็จสิ้น</button>
+        <button class="w-28 bg-gray-400 rounded-lg py-1.5 px-3" @click="edit">แก้ไข</button>
+        <button class="w-28 bg-white rounded-lg py-1.5 px-3 font-extrabold" @click="submit">เสร็จสิ้น</button>
       </div>
     </div> 
   </div>
@@ -36,6 +36,14 @@ export default {
     return {
       faculty: "คณะวิศวกรรมศาสตร์",
     };
+  },
+  methods: {
+    edit(){
+      this.$router.push("SelectSecond");
+    },
+    submit(){
+      this.$router.push("Finish");
+    }
   },
   computed: {
     getStudents() {
