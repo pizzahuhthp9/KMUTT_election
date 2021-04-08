@@ -1,6 +1,6 @@
 <template>
   <div>
-    <progress-head amount="5" passed="5"></progress-head>
+    <progress-head :amount=5 :passed=5></progress-head>
     <h1 class="text-ls font-bold">
       ยืนยันการเลือกสภานักศึกษา <br />
       {{ faculty }}

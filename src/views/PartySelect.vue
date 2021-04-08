@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="header" class="">
-      <progress-head amount="5" passed="2"></progress-head>
+      <progress-head :amount=5 :passed=2></progress-head>
       <div class="w-full py-3 bg-white border-2 border-black mb-5">
         <p class="text-lg">
           เลือกคณะกรรมการ <br />

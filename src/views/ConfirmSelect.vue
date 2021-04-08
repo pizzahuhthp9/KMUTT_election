@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="header">
-      <progress-head amount="5" passed="3"></progress-head>
+      <progress-head :amount=5 :passed=3></progress-head>
       <h1 class="text-md font-bold">
         ยืนยันการเลือกคณะกรรมการ<br />องค์การบริหารองค์การนักศึกษา
       </h1>
