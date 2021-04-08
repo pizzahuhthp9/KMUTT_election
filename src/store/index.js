@@ -7,82 +7,103 @@ export default createStore({
       no: "60070501000",
       faculty: "คณะวิศวกรรมศาสตร์",
       department: "ภาควิชาวิศวกรรมคอมพิวเตอร์",
-      year: 3
+      year: 3,
     },
-    parties:[
+    parties: [
       {
         name: "ที่ไว้ใจเทอว์",
-        isAccept: 0
+        isAccept: 0,
       },
       {
         name: "ผ่อน",
-        isAccept: 0
-      }
+        isAccept: 0,
+      },
     ],
     studentConcil: [
       {
         name: "นายมะลึก กึ๊กกึ๋ย",
         faculty: "ภาควิศวกรรมคอมพิวเตอร์",
         year: 1,
-        selectState: null
+        selectState: null,
       },
       {
         name: "นายมะลึก กึ๊กกึ๋ย",
         faculty: "ภาควิศวกรรมคอมพิวเตอร์",
         year: 1,
-        selectState: null
+        selectState: null,
       },
       {
         name: "นายมะลึก กึ๊กกึ๋ย",
         faculty: "ภาควิศวกรรมคอมพิวเตอร์",
         year: 1,
-        selectState: null
+        selectState: null,
       },
-    ]
+    ],
+    isAllPartySelected: false,
   },
   mutations: {
-    partyAccept(state, changingParty){
-      state.parties.forEach(party => {
+    partyAccept(state, changingParty) {
+      state.parties.forEach((party) => {
         if (party === changingParty) {
           party.isAccept = 1;
-        } else{
+        } else {
           party.isAccept = -1;
         }
       });
-
+      state.isAllPartySelected = true;
     },
-    partyDecline(state, changingParty){
-      state.parties.forEach(party => {
+    partyDecline(state, changingParty) {
+      let isNotAll = false;
+      state.parties.forEach((party) => {
         if (party === changingParty) {
           party.isAccept = -1;
         }
+        if (party.isAccept == 0) {
+          isNotAll = true;
+        }
       });
+      if (!isNotAll) {
+        state.isAllPartySelected = true;
+      }
     },
-    partyDeSelect(state, changingParty){
-      state.parties.forEach(party => {
-          if (party === changingParty) {
-            party.isAccept = 0;
-          }
+    partyDeSelect(state, changingParty) {
+      state.parties.forEach((party) => {
+        if (party === changingParty) {
+          party.isAccept = 0;
+        }
       });
+      state.isAllPartySelected = false;
     },
-    setStudentSelectState(state, payload){
-      state.studentConcil.forEach(student => {
+    setStudentSelectState(state, payload) {
+      state.studentConcil.forEach((student) => {
         if (student === payload.student) {
           student.selectState = payload.selectState;
-          console.log(state.studentConcil)
         }
       });
     },
   },
   getters: {
-    getUser(state){
+    getUser(state) {
       return state.user;
     },
-    getParties(state){
+    getParties(state) {
       return state.parties;
     },
-    getConcil(state){
+    getConcil(state) {
       return state.studentConcil;
+    },
+    isAllPartySelected(state){
+      return state.isAllPartySelected;
+    },
+    getSelectedParty(state){
+      let selectedParty = null;
+      state.parties.forEach((party, index) => {
+        if (party.isAccept == 1) {
+          party.no = index + 1;
+          selectedParty = party;
+        }
+      });
+      return selectedParty;
     }
   },
   actions: {},
