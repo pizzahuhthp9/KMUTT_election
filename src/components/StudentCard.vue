@@ -9,7 +9,7 @@
       <div class="flex xs:text-xxs xxs:text-xxxs space-x-1">
         <button
           class="bg-select px-2 py-1 border border-black rounded-2xl"
-          v-if="state == 1"
+          v-if="this.student.selectState == 1"
           @click="deSelect"
         >
           ยอมรับ
@@ -23,7 +23,7 @@
         </button>
         <button
           class="bg-danger py-1 border border-black rounded-2xl"
-          v-if="state == -1"
+          v-if="this.student.selectState == -1"
           @click="deSelect"
         >
           ไม่ยอมรับ
@@ -37,7 +37,7 @@
         </button>
         <button
           class="bg-gray-400 py-1 border border-black rounded-2xl"
-          v-if="state == 0"
+          v-if="this.student.selectState == 0"
           @click="deSelect"
         >
           ไม่ออกเสียง
@@ -59,7 +59,6 @@ export default {
   name: "StudentCard",
   data() {
     return {
-      state: null,
     };
   },
   methods: {
