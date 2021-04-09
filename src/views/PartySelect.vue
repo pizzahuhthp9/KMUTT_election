@@ -43,6 +43,7 @@
 <script>
 import ProgressHead from "@/components/ProgressHead.vue";
 import PartyCard from "@/components/PartyCard.vue";
+import axios from "axios";
 export default {
   name: "PartySelect",
   data() {
@@ -76,6 +77,17 @@ export default {
     unSelectNoVote(){
       this.isNoVote = false;
     }
+  },
+  mounted() {
+    axios({
+      method: "GET",
+      url: this.$store.getters.getAPIPath + "/api/party/",
+      headers: {
+        Authorization: this.$store.getters.getToken
+      },
+    }).then((result)=>{
+      this.$store.commit("setParty", result.data);
+    })
   },
   components: {
     ProgressHead,

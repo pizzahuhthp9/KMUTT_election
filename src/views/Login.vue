@@ -16,9 +16,9 @@
           </button>
         </div>
         <div class="w-20 flex space-x-1 items-center">
-          <img src="@/assets/KMUTT_Semi_Logo.png" alt="" class="h-8"/>
+          <img src="@/assets/KMUTT_Semi_Logo.png" alt="" class="h-8" />
           <div class="h-8 border-black border-r"></div>
-          <img src="@/assets/KMUTT_election.png" alt="" class="h-8">
+          <img src="@/assets/KMUTT_election.png" alt="" class="h-8" />
         </div>
       </div>
 
@@ -48,7 +48,9 @@
               v-model="password"
             />
           </div>
-          <p class="text-danger">รหัสนักศึกษาหรือรหัสผ่านไม่ถูกต้อง</p>
+          <p class="text-danger" v-show="isWrongAuthen">
+            รหัสนักศึกษาหรือรหัสผ่านไม่ถูกต้อง
+          </p>
         </div>
         <div class="flex flex-col">
           <button
@@ -75,6 +77,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Login",
   data() {
@@ -82,15 +85,36 @@ export default {
       passwordToggle: "password",
       password: null,
       username: null,
+      isWrongAuthen: false,
     };
   },
   methods: {
-    login(){
-      this.$router.push("Confirm");
+    login() {
+      axios({
+        method: "POST",
+        url: this.$store.getters.getAPIPath + "/api/auth/login",
+        data: {
+          username: this.username,
+          password: this.password,
+        },
+      }).then((result) => {
+          let user = {};
+          user.name = result.data.firstNameTH;
+          user.no = result.data.studentId;
+          user.faculty = result.data.facultyTH;
+          user.department = result.data.fieldTH;
+          user.year = result.data.studentYear;
+          user.imagePath = result.data.imagePath;
+          this.$store.commit("setUser", user);
+          this.$store.commit("setToken", result.data.jwttoken);
+          this.$router.push("Confirm");
+      }).catch((error)=>{
+        if (error.response.data.status == 400) {
+          this.isWrongAuthen = true;
+        }
+      });
     },
-    forgotPassword(){
-
-    }
+    forgotPassword() {},
   },
 };
 </script>

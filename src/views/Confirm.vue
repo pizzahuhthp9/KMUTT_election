@@ -15,7 +15,7 @@
     <div id="comfirmation">
       <div v-if="!isPrivilegesUsed">
         <p>ข้อมูลของคุณถูกต้องหรือไม่</p>
-        <div class="flex space-x-4 justify-center">
+        <div class="flex space-x-4 justify-center mb-3">
           <router-link to="/sentmessage"
             ><button
               class="w-24 h-10 bg-gray-300 rounded-xl"

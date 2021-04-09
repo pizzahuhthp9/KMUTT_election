@@ -1,6 +1,6 @@
 <template>
   <div class="flex bg-white p-4 rounded-lg space-x-3 justify-around">
-    <div class="h-16 w-16 bg-white border-2 border-black"></div>
+    <img :src="imgSrc" alt="" class="w-16 bg-white">
     <div class="flex flex-col h-max items-start justify-around">
       <p class="xxs:text-xs xs:text-sm font-bold">{{ student.name }}</p>
       <p class="xxs:text-xxxs xs:text-xxs font-bold">
@@ -59,6 +59,7 @@ export default {
   name: "StudentCard",
   data() {
     return {
+      imgSrc: this.$store.getters.getAPIPath+ "/api/files/" + this.student.imageId
     };
   },
   methods: {

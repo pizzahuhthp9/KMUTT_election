@@ -8,15 +8,15 @@
     </div>
     <div id="body" class="mx-10 mt-4">
       <div
-        class="bg-white rounded-3xl border-2 border-black flex flex-col items-center h-64"
+        class="bg-white rounded-3xl border-2 border-black flex flex-col items-center"
         v-if="selected"
       >
         <div class="mt-2">
           <h1 class="text-md">คุณเลือก</h1>
           <h1 class="text-xl">เบอร์ {{ partyNo }}</h1>
         </div>
-        <div class="mt-3 w-4/5 bg-white border-2 border-black h-24"></div>
-        <h1 class="text-lg my-4">{{ partyName }}</h1>
+        <img :src="imgSrc" alt="" class="mt-3 w-4/5">
+        <h1 class="text-lg my-4 font-bold">{{ partyName }}</h1>
       </div>
       <div
         class="bg-white rounded-3xl border-2 border-black flex flex-col items-center h-64"
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="mx-10 mt-5 mb-2">
+    <div class="mx-10 mt-5 mb-4">
       <p class="text-sm">
         เมื่อเลือก <span class="font-bold text-md">“เสร็จสิ้น”</span><br />
         จะไม่สามารถแก้ไขได้อีก<br />
@@ -55,6 +55,7 @@ export default {
       partyNo: null,
       partyName: null,
       selected: true ,
+      imgSrc: ""
     };
   },
   methods: {
@@ -71,8 +72,9 @@ export default {
       this.selected = false;
     }else{
       this.selected = true;
-      this.partyNo = party.no;
+      this.partyNo = party.id;
       this.partyName = party.name;
+      this.imgSrc = this.$store.getters.getAPIPath + "/api/files/" + party.imageId
     }
   },
   components: {

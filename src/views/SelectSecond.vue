@@ -1,6 +1,6 @@
 <template>
   <div>
-    <progress-head :amount=5 :passed=4></progress-head>
+    <progress-head :amount="5" :passed="4"></progress-head>
     <div id="head" class="bg-white border-2 border-black py-2 my-2">
       <h1 class="text-lg">เลือกสภานักศึกษา<br />{{ faculty }}</h1>
     </div>
@@ -12,7 +12,12 @@
         :student="student"
         class="mb-3"
       ></student-card>
-      <button class="bg-gray-200 text-lg font-extrabold px-6 py-1 rounded-xl mt-3" @click="submit">ยืนยัน</button>
+      <button
+        class="bg-gray-200 text-lg font-extrabold px-6 py-1 rounded-xl mt-3"
+        @click="submit"
+      >
+        ยืนยัน
+      </button>
     </div>
   </div>
 </template>
@@ -20,6 +25,7 @@
 <script>
 import ProgressHead from "@/components/ProgressHead.vue";
 import StudentCard from "@/components/StudentCard.vue";
+import axios from "axios";
 export default {
   name: "SelectSecond",
   data() {
@@ -28,19 +34,29 @@ export default {
     };
   },
   methods: {
-    submit(){
+    submit() {
       if (this.$store.getters.isConcilAllSelected) {
-        this.$router.push("ConfirmSelectSecond");  
-      } else{
+        this.$router.push("ConfirmSelectSecond");
+      } else {
         console.log("เลือกให้ครบสิจ้ะ");
       }
-      
-    }
+    },
   },
-  computed:{
-    getStudents(){
+  computed: {
+    getStudents() {
       return this.$store.getters.getConcil;
-    }
+    },
+  },
+  mounted() {
+    axios({
+      method: "GET",
+      url: this.$store.getters.getAPIPath + "/api/council/",
+      headers: {
+        Authorization: this.$store.getters.getToken,
+      },
+    }).then((result)=>{
+      this.$store.commit("setCouncil", result.data);
+    });
   },
   components: {
     ProgressHead,

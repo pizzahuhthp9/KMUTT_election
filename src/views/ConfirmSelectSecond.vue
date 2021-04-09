@@ -30,6 +30,7 @@
 <script>
 import ProgressHead from "@/components/ProgressHead.vue";
 import ConfirmStudentCard from "@/components/ConfirmStudentCard.vue";
+import axios from "axios";
 export default {
   name: "ConfirmSelectSecond",
   data() {
@@ -42,7 +43,36 @@ export default {
       this.$router.push("SelectSecond");
     },
     submit(){
-      this.$router.push("Finish");
+      let studentCouncil = [];
+      let parties= [];
+      this.$store.getters.getConcil.forEach(student => {
+        let pushingStudent = {};
+        pushingStudent.id = student.id;
+        pushingStudent.choice = student.selectState;
+        studentCouncil.push(pushingStudent);
+      });
+      this.$store.getters.getParties.forEach(party => {
+        let pushingParty = {};
+        pushingParty.id = party.id;
+        pushingParty.choice = party.isAccept;
+        parties.push(pushingParty);
+      });
+
+      axios({
+        method: "POST",
+        url: this.$store.getters.getAPIPath + "/api/vote/",
+        headers: {
+          Authorization: this.$store.getters.getToken
+        },
+        data: {
+          council: studentCouncil,
+          party: parties
+        }
+      }).then((result)=>{
+        console.log(result);
+        this.$router.push("Finish");
+      })
+      
     }
   },
   computed: {
