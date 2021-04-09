@@ -2,7 +2,10 @@
   <div id="content">
     <div class="mx-10">
       <div id="header" class="mt-5 flex justify-between items-center mb-8">
-        <div id="langBtn" class="w-max text-xxs group flex flex-col h-4">
+        <div
+          id="langBtn"
+          class="w-max text-xxs group flex flex-col h-4 opacity-0"
+        >
           <button class="py-1">Change Language &#9660;</button>
           <button
             class="transform transition bg-white ease-in-out duration-500 rounded-md py-1 -translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100"
@@ -59,7 +62,10 @@
           >
             เข้าสู่ระบบ
           </button>
-          <button class="mt-1 border-b-2 border-black w-max mx-auto text-sms">
+          <button
+            class="mt-1 border-b-2 border-black w-max mx-auto text-sms"
+            v-show="false"
+          >
             ลืมรหัสผ่าน
           </button>
         </div>
@@ -97,7 +103,8 @@ export default {
           username: this.username,
           password: this.password,
         },
-      }).then((result) => {
+      })
+        .then((result) => {
           let user = {};
           user.name = result.data.firstNameTH;
           user.no = result.data.studentId;
@@ -108,11 +115,12 @@ export default {
           this.$store.commit("setUser", user);
           this.$store.commit("setToken", result.data.jwttoken);
           this.$router.push("Confirm");
-      }).catch((error)=>{
-        if (error.response.data.status == 400) {
-          this.isWrongAuthen = true;
-        }
-      });
+        })
+        .catch((error) => {
+          if (error.response.data.status == 400) {
+            this.isWrongAuthen = true;
+          }
+        });
     },
     forgotPassword() {},
   },
