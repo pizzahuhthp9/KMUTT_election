@@ -29,7 +29,12 @@ export default {
   },
   methods: {
     submit(){
-      this.$router.push("ConfirmSelectSecond");
+      if (this.$store.getters.isConcilAllSelected) {
+        this.$router.push("ConfirmSelectSecond");  
+      } else{
+        console.log("เลือกให้ครบสิจ้ะ");
+      }
+      
     }
   },
   computed:{

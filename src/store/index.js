@@ -104,6 +104,15 @@ export default createStore({
         }
       });
       return selectedParty;
+    },
+    isConcilAllSelected(state){
+      let result = true;
+      state.studentConcil.forEach(student => {
+        if(student.selectState == null){
+          result = false;
+        }
+      });
+      return result;
     }
   },
   actions: {},
