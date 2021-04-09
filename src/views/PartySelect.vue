@@ -20,10 +20,14 @@
         class="mb-4"
         v-for="(party, index) in getParties"
         :key="index"
+        @select="unSelectNoVote"
       ></party-card>
 
       <p class="text-lg my-2">หรือ</p>
-      <button class="w-full bg-red-200 text-lg rounded-md py-2 mb-10">
+      <button class="w-full bg-red-200 text-lg rounded-md py-2 mb-10" @click="noVote" v-if="!isNoVote">
+        ไม่ประสงค์ลงคะแนน
+      </button>
+      <button class="w-full bg-red-400 text-lg rounded-md py-2 mb-10" @click="noVote" v-else>
         ไม่ประสงค์ลงคะแนน
       </button>
       <button
@@ -44,6 +48,7 @@ export default {
   data() {
     return {
       isSelected: false,
+      isNoVote: false
     };
   },
   computed: {
@@ -58,7 +63,19 @@ export default {
       } else {
         console.log("เลือกให้ครบซิ้");
       }
+      if (this.isNoVote) {
+        this.$router.push("PartyConfirm");
+      }
     },
+    noVote(){
+      this.$store.getters.getParties.forEach(party => {
+        this.$store.commit("partyDeSelect", party);
+      });
+      this.isNoVote = !this.isNoVote;
+    },
+    unSelectNoVote(){
+      this.isNoVote = false;
+    }
   },
   components: {
     ProgressHead,

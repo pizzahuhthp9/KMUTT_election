@@ -50,6 +50,7 @@ export default {
       } else {
           this.$store.commit('partyAccept', this.party);
       }
+      this.$emit("select");
     },
     decline() {
       if (this.getSelection == -1) {
@@ -57,6 +58,7 @@ export default {
       } else {
           this.$store.commit('partyDecline', this.party);
       }
+      this.$emit("select");
     },
   },
   computed: {
