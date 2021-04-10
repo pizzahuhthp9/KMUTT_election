@@ -5,7 +5,7 @@ export default createStore({
     user: {
       name: "นายประเสริฐ มุ่งมานะ",
       no: "60070501000",
-      faculty: "คณะวิศวกรรมศาสตร์",
+      faculty: "คณะสถาปัตยกรรมศาสตร์และการออกแบบ",
       department: "ภาควิชาวิศวกรรมคอมพิวเตอร์",
       year: 3,
       imagePath: "",
@@ -104,13 +104,16 @@ export default createStore({
     setCouncil(state, payload) {
       let council = [];
       payload.forEach((student) => {
-        let newStudent = {};
-        newStudent.name = student.firstname + " " + student.lastname;
-        newStudent.faculty = student.faculty;
-        newStudent.field = student.field;
-        newStudent.imageId = student.imageId;
-        newStudent.id = student.id;
-        council.push(newStudent);
+        if(state.user.faculty === student.faculty){
+          let newStudent = {};
+          newStudent.name = student.firstname + " " + student.lastname;
+          newStudent.faculty = student.faculty;
+          newStudent.field = student.field;
+          newStudent.imageId = student.imageId;
+          newStudent.id = student.id;
+          council.push(newStudent);
+        }
+        
       });
       state.studentConcil = council;
     },
@@ -140,7 +143,7 @@ export default createStore({
     isConcilAllSelected(state) {
       let result = true;
       state.studentConcil.forEach((student) => {
-        if (student.selectState == null) {
+        if (student.selectState == null && student.faculty == state.user.faculty) {
           result = false;
         }
       });

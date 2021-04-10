@@ -6,7 +6,7 @@
         ยืนยันการเลือกคณะกรรมการ<br />องค์การบริหารองค์การนักศึกษา
       </h1>
     </div>
-    <div id="body" class="mx-10 mt-4">
+    <div id="body" class="w-11/12 l:w-1/2 mx-auto">
       <div
         class="bg-white rounded-3xl border-2 border-black flex flex-col items-center"
         v-if="selected"

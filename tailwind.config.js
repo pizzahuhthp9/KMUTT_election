@@ -43,8 +43,9 @@ module.exports = {
       8: "8px",
     },
     screens: {
-      'xxs': '320px',
-      'xs': '335px',
+      l : '1024px',
+      xxs: '320px',
+      xs: '335px',
     },
     minHeight:{
       '72': '18rem',

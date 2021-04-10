@@ -1,6 +1,6 @@
 <template>
-  <div class="flex bg-white p-4 rounded-lg space-x-3 justify-around">
-    <img :src="imgSrc" alt="" class="w-16 bg-white">
+  <div class="flex bg-white p-4 rounded-lg space-x-3 justify-between l:w-1/2 mx-auto">
+    <img :src="imgSrc" alt="" class="w-1/4 bg-white">
     <div class="flex flex-col h-max items-start justify-around">
       <p class="xxs:text-xs xs:text-sm font-bold">{{ student.name }}</p>
       <p class="xxs:text-xxxs xs:text-xxs font-bold">
@@ -22,28 +22,28 @@
           ยอมรับ
         </button>
         <button
-          class="bg-danger py-1 border border-black rounded-2xl"
+          class="bg-danger px-2 py-1 border border-black rounded-2xl"
           v-if="this.student.selectState == -1"
           @click="deSelect"
         >
           ไม่ยอมรับ
         </button>
         <button
-          class="bg-white py-1 border border-black rounded-2xl"
+          class="bg-white px-2 py-1 border border-black rounded-2xl"
           v-else
           @click="decline"
         >
           ไม่ยอมรับ
         </button>
         <button
-          class="bg-gray-400 py-1 border border-black rounded-2xl"
+          class="bg-gray-400 px-2 py-1 border border-black rounded-2xl"
           v-if="this.student.selectState == 0"
           @click="deSelect"
         >
           ไม่ออกเสียง
         </button>
         <button
-          class="bg-white py-1 border border-black rounded-2xl"
+          class="bg-white px-2 py-1 border border-black rounded-2xl"
           v-else
           @click="noVote"
         >

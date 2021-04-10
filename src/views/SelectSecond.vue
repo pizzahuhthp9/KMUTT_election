@@ -4,7 +4,7 @@
     <div id="head" class="bg-white border-2 border-black py-2 my-2">
       <h1 class="text-lg">เลือกสภานักศึกษา<br />{{ faculty }}</h1>
     </div>
-    <div id="body" class="mx-10">
+    <div id="body" class="w-11/12 l:w-3/4 mx-auto">
       <h1 class="text-sm mb-2">โปรดพิจารณาสภานักศึกษาให้ครบทุกคน</h1>
       <student-card
         v-for="(student, index) in getStudents"
@@ -12,8 +12,9 @@
         :student="student"
         class="mb-3"
       ></student-card>
+      <p>*ระบบจะแสดงเฉพาะผู้สมัครจากคณะของท่านเท่านั้น</p>
       <button
-        class="bg-gray-200 text-lg font-extrabold px-6 py-1 rounded-xl mt-3"
+        class="bg-gray-200 text-lg font-extrabold px-6 py-1 rounded-xl my-3"
         @click="submit"
       >
         ยืนยัน
@@ -30,7 +31,7 @@ export default {
   name: "SelectSecond",
   data() {
     return {
-      faculty: "คณะวิศวกรรมศาสตร์",
+      faculty: this.$store.getters.getUser.faculty,
     };
   },
   methods: {
@@ -40,9 +41,22 @@ export default {
       } else {
         console.log("เลือกให้ครบสิจ้ะ");
       }
+      //  this.$router.push("ConfirmSelectSecond");
     },
   },
   computed: {
+    // getStudents() {
+    //   let concil = this.$store.getters.getConcil;
+    //   let user = this.$store.getters.getUser;
+    //   let NewConcil = [];
+    //   concil.forEach(e => {
+    //     if(e.faculty === user.faculty)
+    //     {
+    //       NewConcil.push(e);
+    //     }
+    //   });
+    //   return NewConcil;
+    // },
     getStudents() {
       return this.$store.getters.getConcil;
     },

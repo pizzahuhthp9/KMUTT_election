@@ -75,9 +75,9 @@
   <div id="footer" class="bottom-4 absolute text-center w-screen">
     <p class="text-xxs">
       สามารถติดตามข้อมูลข่าวสารเพิ่มเติมได้ที่
-      <span class="text-sm font-bold border-b-2 border-black"
-        >บางมดอยากเลือกตั้ง</span
-      >
+      <span class="text-sm font-bold border-b-2 border-black">
+        <a href="https://www.facebook.com/KMUTT-Election-111526570306064" target="_blank">KMUTT Election</a>
+      </span>
     </p>
   </div>
 </template>

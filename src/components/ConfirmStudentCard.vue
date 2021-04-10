@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-main w-full flex justify-between rounded-lg py-1 px-2" >
+  <div v-if="student.selectState != null" class="bg-main w-full flex justify-between rounded-lg py-1 px-2" >
       <p>{{ student.name }}</p>
       <div class="w-6 h-6 rounded-full border-2 border-black bg-select" v-if="student.selectState == 1"></div>
       <div class="w-6 h-6 rounded-full border-2 border-black bg-danger" v-else-if="student.selectState == -1"></div>

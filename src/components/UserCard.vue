@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-10">
+  <div class="w-11/12 l:w-1/2 mx-auto">
       <div
         class="w-full border-2 border-black p-6 mb-8 rounded-3xl bg-white flex flex-col justify-center items-center"
       >
